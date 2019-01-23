@@ -9,10 +9,8 @@ let App = ((doc, win) => {
         canvas.height = canvasSize;
         return canvas;
     }
-
-    const areaSize = 15;
-    const sideSize = 50    
-    let canvasSize = areaSize * sideSize;
+    
+    let canvasSize = 500;
     const canvas = getCanvas(canvasSize);
     const drawService = new DrawService(canvas);        
     
@@ -21,9 +19,25 @@ let App = ((doc, win) => {
     let circleY = 60;    
     setInterval(() => {
         win.requestAnimationFrame(()=>{            
-            drawService.clear();
             // drawService.drawCircle(circleX, circleY, 15);
-            drawService.drawSquare(circleX, circleY, 50);
+            const squareSize = 50;            
+
+            let getCoordinateValue = (value: number) => {
+                if (value <= 0) {
+                    return 0;
+                }
+
+                if (value + squareSize >= canvasSize){
+                    return canvasSize - squareSize;
+                }
+
+                return value;
+            };
+
+            drawService.clear();
+            circleX = getCoordinateValue(circleX);
+            circleY = getCoordinateValue(circleY);
+            drawService.drawSquare(circleX, circleY, squareSize);
         });        
     }, tactInterval)
 
@@ -50,16 +64,6 @@ let App = ((doc, win) => {
                 return;
         }
     });
-
-    let counter = 10;
-    let interval = setInterval(() => {
-        drawService.clear();
-        drawService.drawCircle(counter + 20, 30, 15);
-        counter++;
-        if (counter > 50) {
-            clearInterval(interval);
-        }
-    }, 300)
 
     // setInterval(() => {
     //     win.requestAnimationFrame(drawRotatedLine);
