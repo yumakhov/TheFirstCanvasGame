@@ -1,4 +1,5 @@
 import DrawService from './services/draw/draw-service';
+import { Player, IPlayer } from './entities/player';
 
 let App = ((doc, win) => {
     const tactInterval = 1000 / 60;    
@@ -14,9 +15,7 @@ let App = ((doc, win) => {
     const canvas = getCanvas(canvasSize);
     const drawService = new DrawService(canvas);        
     
-    let speed = 5;    
-    let circleX = 60;  
-    let circleY = 60;    
+    const player: IPlayer = new Player(drawService);
     setInterval(() => {
         win.requestAnimationFrame(()=>{            
             // drawService.drawCircle(circleX, circleY, 15);
@@ -33,11 +32,9 @@ let App = ((doc, win) => {
 
                 return value;
             };
-
             drawService.clear();
-            circleX = getCoordinateValue(circleX);
-            circleY = getCoordinateValue(circleY);
-            drawService.drawSquare(circleX, circleY, squareSize);
+            
+            player.draw();
         });        
     }, tactInterval)
 
@@ -49,16 +46,16 @@ let App = ((doc, win) => {
         // console.log(event);
         switch(event.keyCode) {
             case right: 
-                circleX += speed;
+                player.moveRight();
                 break;
             case left: 
-                circleX -= speed;
+                player.moveLeft();
                 break;
             case up: 
-                circleY -= speed;
+                player.moveUp();
                 break;
             case down: 
-                circleY += speed;
+                player.moveDown();
                 break;
             default:
                 return;
