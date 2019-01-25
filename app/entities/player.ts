@@ -1,5 +1,5 @@
 import { IDrawService } from '../services/draw/draw-service';
-import * as CommonModels from '../entities/common';
+import * as Common from '../entities/common';
 
 
 export interface IPlayer {
@@ -13,13 +13,13 @@ export interface IPlayer {
 export class Player implements IPlayer {
     private size: number;
     private speed: number;
-    private position: CommonModels.IPoint;    
+    private position: Common.IPoint;    
     private drawService: IDrawService;
 
     constructor(drawService: IDrawService){
         this.size = 50;
         this.speed = 2;
-        this.position = new CommonModels.Point(100, 100);
+        this.position = new Common.Point(100, 100);
         this.drawService = drawService;         
     }
 
