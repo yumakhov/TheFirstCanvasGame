@@ -20,7 +20,7 @@ export class Rocket implements IRocket {
                 clearInterval(interval);
             }
 
-            requestAnimationFrame(this.moveUp);
+            requestAnimationFrame(() => this.moveUp());
         }, 1000/60)
     }
 

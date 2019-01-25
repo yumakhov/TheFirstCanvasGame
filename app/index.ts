@@ -15,7 +15,7 @@ let App = ((doc, win) => {
     const canvas = getCanvas(canvasSize);
     const drawService = new DrawService(canvas);        
     
-    const player: IPlayer = new Player(drawService);
+    const player: IPlayer = new Player(drawService);    
     setInterval(() => {
         win.requestAnimationFrame(()=>{            
             // drawService.drawCircle(circleX, circleY, 15);
@@ -42,6 +42,7 @@ let App = ((doc, win) => {
     const up = 38;
     const right = 39;
     const down = 40;
+    const space = 32;
     doc.addEventListener('keydown', (event) => {
         // console.log(event);
         switch(event.keyCode) {
@@ -56,6 +57,9 @@ let App = ((doc, win) => {
                 break;
             case down: 
                 player.moveDown();
+                break;
+            case space: 
+                player.fire();
                 break;
             default:
                 return;
