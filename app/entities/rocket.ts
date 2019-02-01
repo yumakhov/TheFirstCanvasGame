@@ -25,7 +25,7 @@ export class Rocket implements IRocket {
     }
 
     draw(): void {
-        this.drawService.drawSquare(this.position.x, this.position.y, 5);
+        this.drawService.fillCircle(this.position.x, this.position.y, 10, 'blue');
     }
 
     private moveUp() {
