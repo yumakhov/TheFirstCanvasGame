@@ -1,4 +1,5 @@
 import DrawService from './services/draw/draw-service';
+import KeyboardEventsController from './services/keyboard-events-controller';
 import { Player, IPlayer } from './entities/player';
 
 let App = ((doc, win) => {
@@ -16,6 +17,20 @@ let App = ((doc, win) => {
     const drawService = new DrawService(canvas);        
     
     const player: IPlayer = new Player(drawService);    
+    
+    const left = 37;
+    const up = 38;
+    const right = 39;
+    const down = 40;
+    const space = 32;
+    let keyboardEventsController = new KeyboardEventsController();
+    doc.addEventListener('keydown', (event) => {
+        keyboardEventsController.UpdateKeyState(event.keyCode, true);
+    });
+    doc.addEventListener('keyup', (event) => {
+        keyboardEventsController.UpdateKeyState(event.keyCode, false);
+    });
+
     setInterval(() => {
         win.requestAnimationFrame(()=>{            
             // drawService.drawCircle(circleX, circleY, 15);
@@ -34,37 +49,50 @@ let App = ((doc, win) => {
             };
             drawService.clear();
             
+            if (keyboardEventsController.IsPressed(left)){
+                player.moveLeft();
+            }
+            if (keyboardEventsController.IsPressed(right)){
+                player.moveRight();
+            }
+            if (keyboardEventsController.IsPressed(up)){
+                player.moveUp();
+            }
+            if (keyboardEventsController.IsPressed(down)){
+                player.moveDown();
+            }
+            if (keyboardEventsController.IsPressed(space)){
+                player.fire();
+            }
+
             player.draw();
         });        
     }, tactInterval)
 
-    const left = 37;
-    const up = 38;
-    const right = 39;
-    const down = 40;
-    const space = 32;
-    doc.addEventListener('keydown', (event) => {
-        // console.log(event);
-        switch(event.keyCode) {
-            case right: 
-                player.moveRight();
-                break;
-            case left: 
-                player.moveLeft();
-                break;
-            case up: 
-                player.moveUp();
-                break;
-            case down: 
-                player.moveDown();
-                break;
-            case space: 
-                player.fire();
-                break;
-            default:
-                return;
-        }
-    });
+
+    
+
+    //     // console.log(event);
+    //     switch(event.keyCode) {
+    //         case right: 
+    //             player.moveRight();
+    //             break;
+    //         case left: 
+    //             player.moveLeft();
+    //             break;
+    //         case up: 
+    //             player.moveUp();
+    //             break;
+    //         case down: 
+    //             player.moveDown();
+    //             break;
+    //         case space: 
+    //             player.fire();
+    //             break;
+    //         default:
+    //             return;
+    //     }
+    // });
 
     // setInterval(() => {
     //     win.requestAnimationFrame(drawRotatedLine);
