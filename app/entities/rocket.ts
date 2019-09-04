@@ -11,7 +11,7 @@ export class Rocket implements IRocket {
     private drawService: IDrawService;
 
     constructor(startPosition: Common.IPoint, drawService: IDrawService) {
-        this.speed = 10;
+        this.speed = 5;
         this.position = startPosition;
         this.drawService = drawService;
 

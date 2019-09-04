@@ -23,7 +23,7 @@ export class Player implements IPlayer {
 
     constructor(drawService: IDrawService){
         this.size = 50;
-        this.speed = 5;
+        this.speed = 3;
         this.position = new Common.Point(100, 300);
         this.drawService = drawService;         
     }
