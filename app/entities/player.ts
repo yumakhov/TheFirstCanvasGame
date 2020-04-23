@@ -30,6 +30,7 @@ export class Player implements IPlayer {
 
     draw(): void {        
         this.drawService.drawSquare(this.position.x, this.position.y, this.size);
+        this.rockets = this.rockets.filter(rocket => !rocket.isDestroyed);
         for (let rocket of this.rockets) {
             rocket.draw();
         }
