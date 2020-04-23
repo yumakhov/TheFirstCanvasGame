@@ -40,7 +40,6 @@ export class Rocket implements IRocket {
         this.drawService.fillCircle(this.position.x, this.position.y, 10, 'blue');
         if (this.startPosition.y - this.position.y > 200){
             this.isDestroyed = true;
-            console.log("Rocket destroyed. Position y=" + this.position.y);
         }
     }
 
