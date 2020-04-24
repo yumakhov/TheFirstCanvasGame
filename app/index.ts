@@ -1,6 +1,8 @@
 import DrawService from './services/draw/draw-service';
 import KeyboardEventsController from './services/keyboard-events-controller';
 import { Player, IPlayer } from './entities/player';
+import { Target, ITarget } from './entities/target';
+import { Point } from './entities/common';
 
 let App = ((doc, win) => {
     const tactInterval = 1000 / 60;    
@@ -30,7 +32,10 @@ let App = ((doc, win) => {
     doc.addEventListener('keyup', (event) => {
         keyboardEventsController.UpdateKeyState(event.keyCode, false);
     });
-
+    let targets = new Array<ITarget>();
+    targets.push(new Target(new Point(20, 0), drawService));
+    targets.push(new Target(new Point(80, 0), drawService));
+    targets.push(new Target(new Point(120, 0), drawService));
     setInterval(() => {
         win.requestAnimationFrame(()=>{            
             // drawService.drawCircle(circleX, circleY, 15);
@@ -66,6 +71,10 @@ let App = ((doc, win) => {
             }
 
             player.draw();
+
+            for (const target of targets) {
+                target.draw();
+            }
         });        
     }, tactInterval)
 
