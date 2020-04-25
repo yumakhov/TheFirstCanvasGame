@@ -39,7 +39,8 @@ let App = ((doc, win) => {
     var intervalId = setInterval(() => {
         if (!player.isAlive()){
            alert("GAME OVER");
-           clearInterval(intervalId);
+           clearInterval(intervalId);           
+           drawService.clear();
            return; 
         }
 
