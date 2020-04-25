@@ -3,6 +3,7 @@ import { IDrawService } from '../services/draw/draw-service';
 
 export interface ITarget{
     draw(): void;
+    getPosition(): Common.IPoint
 }
 
 export class Target implements ITarget {
@@ -24,6 +25,9 @@ export class Target implements ITarget {
 
             requestAnimationFrame(() => this.moveDown());
         }, 1000/60)
+    }
+    getPosition(): Common.IPoint {
+        return this.position;
     }
 
     draw(): void {

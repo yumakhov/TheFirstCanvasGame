@@ -80,6 +80,9 @@ let App = ((doc, win) => {
 
             for (const target of targets) {
                 target.draw();
+                if (target.getPosition().y >= player.getPosition().y){
+                    player.onTargetCollision();
+                }
             }
         });        
     }, tactInterval)

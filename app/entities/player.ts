@@ -12,6 +12,7 @@ export interface IPlayer {
     moveRight(): void;
     fire(): void;
     onTargetCollision(): void;
+    getPosition(): Common.IPoint
 }
 
 export class Player implements IPlayer {
@@ -30,6 +31,9 @@ export class Player implements IPlayer {
         this.speed = 3;
         this.position = new Common.Point(100, 300);
         this.drawService = drawService;         
+    }
+    getPosition(): Common.IPoint {
+        return this.position;
     }
     isAlive(): boolean {
         return !this.isKilled;
