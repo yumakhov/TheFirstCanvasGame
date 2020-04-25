@@ -36,7 +36,13 @@ let App = ((doc, win) => {
     targets.push(new Target(new Point(20, 0), drawService));
     targets.push(new Target(new Point(80, 0), drawService));
     targets.push(new Target(new Point(120, 0), drawService));
-    setInterval(() => {
+    var intervalId = setInterval(() => {
+        if (!player.isAlive()){
+           alert("GAME OVER");
+           clearInterval(intervalId);
+           return; 
+        }
+
         win.requestAnimationFrame(()=>{            
             // drawService.drawCircle(circleX, circleY, 15);
             const squareSize = 50;            
