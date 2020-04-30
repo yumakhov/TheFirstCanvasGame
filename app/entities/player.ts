@@ -10,7 +10,7 @@ export interface IPlayer {
     moveDown(): void;
     moveLeft(): void;
     moveRight(): void;
-    fire(): void;
+    fire(): IRocket;
     onTargetCollision(): void;
     getPosition(): Common.IPoint
 }
@@ -22,8 +22,6 @@ export class Player implements IPlayer {
     private speed: number;
     private position: Common.IPoint;    
     private drawService: IDrawService;
-
-    private rockets: IRocket[] = [];
 
     constructor(drawService: IDrawService){
         this.isKilled = false;
@@ -42,17 +40,8 @@ export class Player implements IPlayer {
         this.isKilled = true;
     }
 
-    draw(): void {   
-        if (this.isKilled){
-            this.rockets = [];
-            return;
-        }  
-
-        this.drawService.drawSquare(this.position.x, this.position.y, this.size);
-        this.rockets = this.rockets.filter(rocket => !rocket.isDestroyed);
-        for (let rocket of this.rockets) {
-            rocket.draw();
-        }
+    draw(): void {
+        this.drawService.drawSquare(this.position.x, this.position.y, this.size);        
     }
 
     moveUp(){
@@ -71,8 +60,8 @@ export class Player implements IPlayer {
         this.position.x += this.speed;
     }
 
-    fire(): void {
+    fire(): IRocket {
         let startPosition = new Common.Point(this.position.x + this.size/2, this.position.y);
-        this.rockets.push(new Rocket(startPosition, this.drawService));
+        return new Rocket(startPosition, this.drawService);        
     }
 }

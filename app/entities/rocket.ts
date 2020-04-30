@@ -21,13 +21,13 @@ export class Rocket implements IRocket {
         this.isDestroyed = false;
         this.drawService = drawService;
 
-        let interval = setInterval(() => {
-            if(this.position.y < 0) {
-                clearInterval(interval);
-            }
+        // let interval = setInterval(() => {
+        //     if(this.position.y < 0) {
+        //         clearInterval(interval);
+        //     }
 
-            requestAnimationFrame(() => this.moveUp());
-        }, 1000/60)
+        //     requestAnimationFrame(() => this.moveUp());
+        // }, 1000/60)
     }
     destroy(): void {
         this.isDestroyed = true;
@@ -37,13 +37,19 @@ export class Rocket implements IRocket {
         if (this.isDestroyed){
             return;
         }
+
         this.drawService.fillCircle(this.position.x, this.position.y, 10, 'blue');
         if (this.startPosition.y - this.position.y > 200){
             this.isDestroyed = true;
         }
+        this.moveUp();
     }
 
     private moveUp() {
+        if (this.isDestroyed){
+            return;
+        }
+        
         this.position.y -= this.speed;
     }
 }

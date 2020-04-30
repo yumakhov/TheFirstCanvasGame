@@ -67,7 +67,8 @@ export default class GameManager {
                     this.player.moveDown();
                 }
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.space)){
-                    this.player.fire();
+                    let rocket = this.player.fire();
+                    this.rockets.push(rocket);
                 }
     
                 this.player.draw();
@@ -77,6 +78,11 @@ export default class GameManager {
                     if (target.getPosition().y >= this.player.getPosition().y){
                         this.player.onTargetCollision();
                     }
+                }
+
+                this.rockets = this.rockets.filter(rocket => !rocket.isDestroyed);
+                for (let rocket of this.rockets) {
+                    rocket.draw();
                 }
             });        
         }, tactInterval)
