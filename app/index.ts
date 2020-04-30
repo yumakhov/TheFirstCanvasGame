@@ -1,5 +1,5 @@
 import DrawService from './services/draw/draw-service';
-import KeyboardEventsController from './services/keyboard-events-controller';
+import {KeyboardButtons, KeyboardEventsController} from './services/keyboard-events-controller';
 import { Player, IPlayer } from './entities/player';
 import { Target, ITarget } from './entities/target';
 import { Point } from './entities/common';
@@ -20,11 +20,6 @@ let App = ((doc, win) => {
     
     const player: IPlayer = new Player(drawService);    
     
-    const left = 37;
-    const up = 38;
-    const right = 39;
-    const down = 40;
-    const space = 32;
     let keyboardEventsController = new KeyboardEventsController();
     doc.addEventListener('keydown', (event) => {
         keyboardEventsController.UpdateKeyState(event.keyCode, true);
@@ -61,19 +56,19 @@ let App = ((doc, win) => {
             };
             drawService.clear();
             
-            if (keyboardEventsController.IsPressed(left)){
+            if (keyboardEventsController.IsPressed(KeyboardButtons.left)){
                 player.moveLeft();
             }
-            if (keyboardEventsController.IsPressed(right)){
+            if (keyboardEventsController.IsPressed(KeyboardButtons.right)){
                 player.moveRight();
             }
-            if (keyboardEventsController.IsPressed(up)){
+            if (keyboardEventsController.IsPressed(KeyboardButtons.up)){
                 player.moveUp();
             }
-            if (keyboardEventsController.IsPressed(down)){
+            if (keyboardEventsController.IsPressed(KeyboardButtons.down)){
                 player.moveDown();
             }
-            if (keyboardEventsController.IsPressed(space)){
+            if (keyboardEventsController.IsPressed(KeyboardButtons.space)){
                 player.fire();
             }
 
@@ -87,31 +82,6 @@ let App = ((doc, win) => {
             }
         });        
     }, tactInterval)
-
-
-    
-
-    //     // console.log(event);
-    //     switch(event.keyCode) {
-    //         case right: 
-    //             player.moveRight();
-    //             break;
-    //         case left: 
-    //             player.moveLeft();
-    //             break;
-    //         case up: 
-    //             player.moveUp();
-    //             break;
-    //         case down: 
-    //             player.moveDown();
-    //             break;
-    //         case space: 
-    //             player.fire();
-    //             break;
-    //         default:
-    //             return;
-    //     }
-    // });
 
     // setInterval(() => {
     //     win.requestAnimationFrame(drawRotatedLine);

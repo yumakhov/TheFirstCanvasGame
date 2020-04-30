@@ -13,12 +13,21 @@ class KeyState implements IKeyState {
     }
 }
 
-export default class KeyboardEventsController {
-    left: number = 37;
-    up: number = 38;
-    right: number = 39;
-    down: number = 40;
-    space: number = 32;
+export class KeyboardButtons{
+    public static readonly left: number = 37;
+    public static readonly up: number = 38;
+    public static readonly right: number = 39;
+    public static readonly down: number = 40;
+    public static readonly space: number = 32;
+}
+
+export interface IKeyboardEventsController{
+    UpdateKeyState(keyCode: number, isPressed: boolean): void;
+    IsPressed(keyCode: number): boolean;
+}
+
+export class KeyboardEventsController {
+    
 
     private keyStates: IKeyState[] = [];
 
