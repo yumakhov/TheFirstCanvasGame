@@ -17,8 +17,10 @@ export default class GameManager {
     constructor(drawService: IDrawService, keyboardEventsController: IKeyboardEventsController){
         this.drawService = drawService;
         this.keyboardEventsController = keyboardEventsController;
+        this.targets = new Array<ITarget>();
+        this.rockets = new Array<IRocket>();
     }
-    
+
     start(): void {
         this.player = new Player(this.drawService); 
 
