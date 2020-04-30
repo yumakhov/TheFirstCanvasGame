@@ -61,4 +61,15 @@ export default class DrawService implements IDrawService {
         let fillRule: CanvasFillRule = 'nonzero'
         this.ctx.fill(fillRule);
     }
+    
+    // setInterval(() => {
+    //     win.requestAnimationFrame(drawRotatedLine);
+    // }, 50)
+    // function drawRotatedLine(drawService){ //TODO: add params
+    //     drawService.clear();
+    //     ctx.translate(225, 225);
+    //     ctx.rotate(0.05 * Math.PI); 
+    //     ctx.translate(-225, -225);
+    //     drawService.drawLine(200, 200, 250, 250);
+    // }
 }

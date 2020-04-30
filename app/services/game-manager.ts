@@ -5,11 +5,7 @@ import { Point } from '../entities/common';
 import { IDrawService } from './draw/draw-service';
 import {KeyboardButtons, IKeyboardEventsController} from './keyboard-events-controller';
 
-export interface IGameManager {
-    start(): void;
-}
-
-export class GameManager implements IGameManager {
+export default class GameManager {
 
     private player: IPlayer;
     private targets: Array<ITarget>;
@@ -22,7 +18,14 @@ export class GameManager implements IGameManager {
         this.drawService = drawService;
         this.keyboardEventsController = keyboardEventsController;
     }
+    
     start(): void {
+        this.player = new Player(this.drawService); 
+
+        this.targets.push(new Target(new Point(20, 0), this.drawService));
+        this.targets.push(new Target(new Point(80, 0), this.drawService));
+        this.targets.push(new Target(new Point(120, 0), this.drawService));
+
         const tactInterval = 1000 / 60;  
         var intervalId = setInterval(() => {
             if (!this.player.isAlive()){
