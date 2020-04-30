@@ -20,6 +20,7 @@ export class Player implements IPlayer {
     private isKilled: boolean;
     private size: number;
     private speed: number;
+    private timeToRecharge: number;
     private position: Common.IPoint;    
     private drawService: IDrawService;
 
@@ -27,6 +28,7 @@ export class Player implements IPlayer {
         this.isKilled = false;
         this.size = 50;
         this.speed = 3;
+        this.timeToRecharge = 0;
         this.position = new Common.Point(100, 300);
         this.drawService = drawService;         
     }
@@ -41,6 +43,9 @@ export class Player implements IPlayer {
     }
 
     draw(): void {
+        if (this.timeToRecharge > 0) {
+            this.timeToRecharge -= 10;
+        }
         this.drawService.drawSquare(this.position.x, this.position.y, this.size);        
     }
 
@@ -61,6 +66,10 @@ export class Player implements IPlayer {
     }
 
     fire(): IRocket {
+        if (this.timeToRecharge > 0){
+            return;
+        }
+        this.timeToRecharge = 100;
         let startPosition = new Common.Point(this.position.x + this.size/2, this.position.y);
         return new Rocket(startPosition, this.drawService);        
     }

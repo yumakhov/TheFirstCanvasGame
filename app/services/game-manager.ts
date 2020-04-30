@@ -68,7 +68,9 @@ export default class GameManager {
                 }
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.space)){
                     let rocket = this.player.fire();
-                    this.rockets.push(rocket);
+                    if (rocket) {
+                        this.rockets.push(rocket);
+                    }
                 }
     
                 this.player.draw();
