@@ -3,7 +3,7 @@ import { IRocket, Rocket } from '../entities/rocket';
 import * as Common from '../entities/common';
 
 
-export interface IPlayer {
+export interface IPlayer extends Common.IEntity {
     isAlive(): boolean;
     draw(): void;
     moveUp(): void;
@@ -17,19 +17,21 @@ export interface IPlayer {
 
 export class Player implements IPlayer {
     
+    public position: Common.IPoint; 
+    public width: number;
+    public height: number; 
     private isKilled: boolean;
-    private size: number;
     private speed: number;
-    private timeToRecharge: number;
-    private position: Common.IPoint;    
+    private timeToRecharge: number;  
     private drawService: IDrawService;
 
-    constructor(drawService: IDrawService){
+    constructor(drawService: IDrawService){        
+        this.position = new Common.Point(100, 300);
+        this.width = 50;
+        this.height = 50;
         this.isKilled = false;
-        this.size = 50;
         this.speed = 3;
         this.timeToRecharge = 0;
-        this.position = new Common.Point(100, 300);
         this.drawService = drawService;         
     }
     getPosition(): Common.IPoint {
@@ -46,7 +48,7 @@ export class Player implements IPlayer {
         if (this.timeToRecharge > 0) {
             this.timeToRecharge -= 10;
         }
-        this.drawService.drawSquare(this.position.x, this.position.y, this.size);        
+        this.drawService.drawSquare(this.position.x, this.position.y, this.width);        
     }
 
     moveUp(){
@@ -70,7 +72,7 @@ export class Player implements IPlayer {
             return;
         }
         this.timeToRecharge = 100;
-        let startPosition = new Common.Point(this.position.x + this.size/2, this.position.y);
+        let startPosition = new Common.Point(this.position.x + this.width/2, this.position.y);
         return new Rocket(startPosition, this.drawService);        
     }
 }

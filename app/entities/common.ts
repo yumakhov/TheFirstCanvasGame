@@ -11,3 +11,9 @@ export class Point implements IPoint {
         this.y = y;
     }    
 }
+
+export interface IEntity {
+    position: IPoint;
+    width: number;
+    height: number;    
+}

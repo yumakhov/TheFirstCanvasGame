@@ -1,21 +1,23 @@
 import * as Common from '../entities/common';
 import { IDrawService } from '../services/draw/draw-service';
 
-export interface ITarget{
+export interface ITarget extends Common.IEntity{
     draw(): void;
     getPosition(): Common.IPoint
 }
 
 export class Target implements ITarget {
+    public position: Common.IPoint;
+    public width: number;
+    public height: number; 
     private speed: number;
-    private startPosition: Common.IPoint;
-    private position: Common.IPoint;
     private drawService: IDrawService;
 
     constructor(startPosition: Common.IPoint, drawService: IDrawService){
-        this.speed = 1;
-        this.startPosition = new Common.Point(startPosition.x, startPosition.y);
-        this.position = new Common.Point(startPosition.x, startPosition.y);        
+        this.position = new Common.Point(startPosition.x, startPosition.y); 
+        this.width = 20;
+        this.height = 20;  
+        this.speed = 1;     
         this.drawService = drawService;
 
         let interval = setInterval(() => {
@@ -31,7 +33,7 @@ export class Target implements ITarget {
     }
 
     draw(): void {
-        this.drawService.drawSquare(this.position.x, this.position.y, 20);
+        this.drawService.drawSquare(this.position.x, this.position.y, this.width);
     }
 
     private moveDown() {
