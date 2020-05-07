@@ -6,6 +6,7 @@ export interface ITarget extends Common.IEntity{
     getPosition(): Common.IPoint
 }
 
+
 export class Target implements ITarget {
     public position: Common.IPoint;
     public width: number;
