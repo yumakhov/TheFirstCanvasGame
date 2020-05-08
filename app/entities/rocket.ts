@@ -17,12 +17,12 @@ export class Rocket implements IRocket {
     public isDestroyed: boolean;
     private drawService: IDrawService;
 
-    constructor(startPosition: Common.IPoint, drawService: IDrawService) {
+    constructor(startPosition: Common.IPoint, drawService: IDrawService) {       
         
-        this.startPosition = new Common.Point(startPosition.x, startPosition.y);
-        this.position = new Common.Point(startPosition.x, startPosition.y);
         this.width = 20;
         this.height = 20;
+        this.startPosition = new Common.Point(startPosition.x, startPosition.y);
+        this.position = new Common.Point(startPosition.x - this.width/2, startPosition.y - this.height/2);
         this.speed = 5;
         this.isDestroyed = false;
         this.drawService = drawService;
@@ -47,8 +47,8 @@ export class Rocket implements IRocket {
             return;
         }
 
-        this.drawService.fillCircle(this.position.x, this.position.y, this.width/2, 'blue');
-        if (this.startPosition.y - this.position.y > 200){
+        this.drawService.fillCircle(this.position.x + this.width/2, this.position.y + this.height/2, this.width/2, 'blue');
+        if (this.startPosition.y - this.position.y > 400){
             this.isDestroyed = true;
         }
         this.moveUp();
