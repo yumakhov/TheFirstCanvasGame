@@ -4,6 +4,7 @@ import { Target, ITarget } from '../entities/target';
 import { Point } from '../entities/common';
 import { IDrawService } from './draw/draw-service';
 import {KeyboardButtons, IKeyboardEventsController} from './keyboard-events-controller';
+import CollisionService from './collision-service'
 
 export default class GameManager {
 
@@ -77,7 +78,7 @@ export default class GameManager {
     
                 for (const target of this.targets) {
                     target.draw();
-                    if (target.getPosition().y >= this.player.getPosition().y){
+                    if (CollisionService.intersects(this.player, target)){
                         this.player.onTargetCollision();
                     }
                 }
