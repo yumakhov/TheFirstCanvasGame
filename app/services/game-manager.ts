@@ -23,13 +23,10 @@ export default class GameManager {
     }
 
     start(): void {
-        this.player = new Player(this.drawService); 
+        this.player = new Player(this.drawService);
 
-        this.targets.push(new Target(new Point(20, 0), this.drawService));
-        this.targets.push(new Target(new Point(80, 0), this.drawService));
-        this.targets.push(new Target(new Point(120, 0), this.drawService));
-
-        const tactInterval = 1000 / 60;  
+        const tactInterval = 1000 / 60;    
+        let i = 0;
         var intervalId = setInterval(() => {
             if (!this.player.isAlive()){
                alert("GAME OVER");
@@ -37,7 +34,11 @@ export default class GameManager {
                this.drawService.clear();
                return; 
             }
-    
+            i++;
+            if (i % 100 === 0) {
+                this.targets.push(new Target(new Point(78 + i % 187, 0), this.drawService));
+            }
+
             window.requestAnimationFrame(()=>{            
                 // drawService.drawCircle(circleX, circleY, 15);
                 const squareSize = 50;            
@@ -75,15 +76,22 @@ export default class GameManager {
                 }
     
                 this.player.draw();
-    
+
+                this.targets = this.targets.filter(entity => entity.isAlive());
                 for (const target of this.targets) {
                     target.draw();
                     if (CollisionService.intersects(this.player, target)){
                         this.player.onTargetCollision();
                     }
+                    for (const rocket of this.rockets) {
+                        if (CollisionService.intersects(rocket, target)){
+                            target.onRocketCollision();
+                            rocket.onTargetCollision();
+                        }
+                    }
                 }
 
-                this.rockets = this.rockets.filter(rocket => !rocket.isDestroyed);
+                this.rockets = this.rockets.filter(rocket => !rocket.isDestroyed);                
                 for (let rocket of this.rockets) {
                     rocket.draw();
                 }

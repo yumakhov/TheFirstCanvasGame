@@ -5,6 +5,7 @@ export interface IRocket extends Common.IEntity {
     draw(): void;
     destroy(): void;
     isDestroyed: boolean;
+    onTargetCollision(): void;
 }
 
 export class Rocket implements IRocket {
@@ -33,6 +34,9 @@ export class Rocket implements IRocket {
 
         //     requestAnimationFrame(() => this.moveUp());
         // }, 1000/60)
+    }
+    onTargetCollision(): void {
+        this.destroy();
     }
     destroy(): void {
         this.isDestroyed = true;
