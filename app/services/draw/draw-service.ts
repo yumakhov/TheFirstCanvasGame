@@ -1,3 +1,4 @@
+import * as Common from "../../entities/common"
 export interface IDrawService {
     clear(): void;
     fill(color: string): void;
@@ -5,6 +6,8 @@ export interface IDrawService {
     drawSquare(x: number, y: number, sideSize: number): void;
     drawCircle(x: number, y: number, r: number): void;
     fillCircle(x: number, y: number, r: number, color: string): void;
+    drawImageFromFile(pos: Common.IPoint, filePath: string): HTMLImageElement;
+    drawImage(pos: Common.IPoint, img: HTMLImageElement): void
 }
 
 export default class DrawService implements IDrawService {
@@ -13,6 +16,19 @@ export default class DrawService implements IDrawService {
     constructor(canvas: HTMLCanvasElement){
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');        
+    }
+
+    drawImage(pos: Common.IPoint, img: HTMLImageElement): void {
+        this.ctx.drawImage(img, pos.x, pos.y);
+    }
+
+    drawImageFromFile(pos: Common.IPoint, filePath: string): HTMLImageElement {
+        var img = new Image();
+        img.onload = () => {
+            this.ctx.drawImage(img, pos.x, pos.y);
+        }
+        img.src = filePath;
+        return img;
     }
 
     clear(){

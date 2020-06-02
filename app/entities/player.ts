@@ -48,8 +48,16 @@ export class Player implements IPlayer {
         if (this.timeToRecharge > 0) {
             this.timeToRecharge -= 10;
         }
-        this.drawService.drawSquare(this.position.x, this.position.y, this.width);        
+        if (!this._playerImg) {
+            this._playerImg = this.drawService.drawImageFromFile(this.position, '../assets/img/tank.svg');
+        } else {
+            this.drawService.drawImage(this.position, this._playerImg);
+        }
+
+        //this.drawService.drawSquare(this.position.x, this.position.y, this.width);        
     }
+
+    private _playerImg: HTMLImageElement;
 
     moveUp(){
         this.position.y -= this.speed;
