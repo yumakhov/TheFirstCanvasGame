@@ -25,10 +25,11 @@ export class Player implements IPlayer {
     private timeToRecharge: number;  
     private drawService: IDrawService;
 
-    constructor(drawService: IDrawService){        
-        this.position = new Common.Point(100, 300);
+    constructor(drawService: IDrawService){     
+        let canvasSize = 500;   
         this.width = 84;
         this.height = 84;
+        this.position = new Common.Point(canvasSize/2 - this.width/2, canvasSize-this.height);
         this.isKilled = false;
         this.speed = 3;
         this.timeToRecharge = 0;
