@@ -27,6 +27,7 @@
     </linearGradient>
   </defs>
   <sodipodi:namedview
+     borderlayer="false"
      id="base"
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -34,8 +35,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="279.96408"
-     inkscape:cy="168.80642"
+     inkscape:cx="301.96408"
+     inkscape:cy="216.80642"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -59,7 +60,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -68,43 +69,43 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#447821;stroke-width:0.115422"
+       style="fill:#447821;stroke-width:0.0461688"
        id="rect10"
-       width="50"
-       height="32.004715"
-       x="2.9104133"
-       y="19.947977" />
+       width="20"
+       height="12.801886"
+       x="1.0583299"
+       y="8.1730528" />
     <rect
-       style="fill:#000000;stroke-width:0.110002"
+       style="fill:#000000;stroke-width:0.0440009"
        id="rect12"
-       width="39.576859"
-       height="4.2523756"
-       x="8.1219883"
-       y="51.952679" />
+       width="15.830744"
+       height="1.70095"
+       x="3.1429598"
+       y="20.974932" />
     <rect
-       y="15.695628"
-       x="8.1219921"
-       height="4.2523756"
-       width="39.576859"
+       y="6.4721131"
+       x="3.1429613"
+       height="1.70095"
+       width="15.830744"
        id="rect12-6"
-       style="fill:#000000;stroke-width:0.110002" />
+       style="fill:#000000;stroke-width:0.0440009" />
     <path
        id="path32"
-       style="fill:#447821;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.333719;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 41.481847,35.614687 A 13.095241,12.309504 0 0 1 28.386624,47.924147 13.095241,12.309504 0 0 1 15.291366,35.614687 13.095241,12.309504 0 0 1 28.386624,23.305157 13.095241,12.309504 0 0 1 41.481847,35.614687 Z" />
+       style="fill:#447821;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.133488;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 16.486904,14.439735 A 5.2380964,4.923801 0 0 1 11.248815,19.363519 5.2380964,4.923801 0 0 1 6.0107111,14.439735 5.2380964,4.923801 0 0 1 11.248815,9.5159243 5.2380964,4.923801 0 0 1 16.486904,14.439735 Z" />
     <rect
-       style="fill:#447821;fill-opacity:1;stroke:#000000;stroke-width:0.330524;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#447821;fill-opacity:1;stroke:#000000;stroke-width:0.13221;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect886"
-       width="5.4794898"
-       height="22.160204"
-       x="25.28969"
-       y="1.3703104" />
+       width="2.1917958"
+       height="8.8640814"
+       x="10.010039"
+       y="0.74198657" />
     <ellipse
-       style="fill:#2d5016;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.246477;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#2d5016;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0985909;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path888"
-       cx="28.267572"
-       cy="35.55872"
-       rx="6.666667"
-       ry="6.3226128" />
+       cx="11.201194"
+       cy="14.41735"
+       rx="2.6666667"
+       ry="2.5290449" />
   </g>
 </svg>

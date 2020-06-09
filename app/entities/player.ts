@@ -27,8 +27,8 @@ export class Player implements IPlayer {
 
     constructor(drawService: IDrawService){        
         this.position = new Common.Point(100, 300);
-        this.width = 50;
-        this.height = 50;
+        this.width = 84;
+        this.height = 84;
         this.isKilled = false;
         this.speed = 3;
         this.timeToRecharge = 0;
