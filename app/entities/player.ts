@@ -78,8 +78,13 @@ export class Player implements IPlayer {
         if (this.timeToRecharge > 0){
             return;
         }
-        this.timeToRecharge = 100;
+        
+        this.SetTimeToRecharge();
         let startPosition = new Common.Point(this.position.x + this.width/2, this.position.y);
         return new Rocket(startPosition, this.drawService);        
+    }
+
+    private SetTimeToRecharge() {
+        this.timeToRecharge = 400;
     }
 }

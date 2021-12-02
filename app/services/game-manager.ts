@@ -34,15 +34,17 @@ export default class GameManager {
                this.drawService.clear();
                return; 
             }
+
+            //Targets generation --->>>
             i++;
             if (i % 100 === 0) {
                 let randomNumber = Math.random();
-                this.targets.push(new Target(new Point(97*randomNumber + i % 187, 0), this.drawService));
+                this.targets.push(new Target(new Point(137*randomNumber + i % 187, 0), this.drawService));
             }
+            //<<<--- Targets generation
 
             window.requestAnimationFrame(()=>{            
                 
-                const squareSize = 50;            
                 this.drawService.clear();
                 
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.left)){
@@ -85,7 +87,7 @@ export default class GameManager {
                 }
 
                 this.rockets = this.rockets.filter(rocket => !rocket.isDestroyed);                
-                for (let rocket of this.rockets) {
+                for (const rocket of this.rockets) {
                     rocket.draw();
                 }
             });        
