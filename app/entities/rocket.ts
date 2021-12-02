@@ -25,19 +25,13 @@ export class Rocket implements IRocket {
         this.position = new Common.Point(startPosition.x - this.width/2, startPosition.y - this.height/2);
         this.speed = 5;
         this.isDestroyed = false;
-        this.drawService = drawService;
-
-        // let interval = setInterval(() => {
-        //     if(this.position.y < 0) {
-        //         clearInterval(interval);
-        //     }
-
-        //     requestAnimationFrame(() => this.moveUp());
-        // }, 1000/60)
+        this.drawService = drawService;     
     }
+
     onTargetCollision(): void {
         this.destroy();
     }
+    
     destroy(): void {
         this.isDestroyed = true;
     }

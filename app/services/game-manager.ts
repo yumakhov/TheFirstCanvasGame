@@ -36,24 +36,13 @@ export default class GameManager {
             }
             i++;
             if (i % 100 === 0) {
-                this.targets.push(new Target(new Point(78 + i % 187, 0), this.drawService));
+                let randomNumber = Math.random();
+                this.targets.push(new Target(new Point(97*randomNumber + i % 187, 0), this.drawService));
             }
 
             window.requestAnimationFrame(()=>{            
-                // drawService.drawCircle(circleX, circleY, 15);
+                
                 const squareSize = 50;            
-    
-                // let getCoordinateValue = (value: number) => {
-                //     if (value <= 0) {
-                //         return 0;
-                //     }
-    
-                //     if (value + squareSize >= canvasSize){
-                //         return canvasSize - squareSize;
-                //     }
-    
-                //     return value;
-                // };
                 this.drawService.clear();
                 
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.left)){
@@ -63,10 +52,12 @@ export default class GameManager {
                     this.player.moveRight();
                 }
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.up)){
-                    this.player.moveUp();
+                    //don't allow to move up
+                    //this.player.moveUp();
                 }
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.down)){
-                    this.player.moveDown();
+                    //don't allow to move down
+                    //this.player.moveDown();
                 }
                 if (this.keyboardEventsController.IsPressed(KeyboardButtons.space)){
                     let rocket = this.player.fire();
@@ -80,9 +71,11 @@ export default class GameManager {
                 this.targets = this.targets.filter(entity => entity.isAlive());
                 for (const target of this.targets) {
                     target.draw();
+
                     if (CollisionService.intersects(this.player, target)){
                         this.player.onTargetCollision();
                     }
+
                     for (const rocket of this.rockets) {
                         if (CollisionService.intersects(rocket, target)){
                             target.onRocketCollision();

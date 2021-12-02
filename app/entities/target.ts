@@ -24,15 +24,8 @@ export class Target implements ITarget {
         this.isDestroyed = false;
         this.speed = 1;     
         this.drawService = drawService;
-
-        let interval = setInterval(() => {
-            if(this.position.y < 0) {
-                clearInterval(interval);
-            }
-
-            requestAnimationFrame(() => this.moveDown());
-        }, 1000/60)
     }
+
     isAlive(): boolean {
         return !this.isDestroyed;
     }
@@ -40,6 +33,7 @@ export class Target implements ITarget {
     onRocketCollision(): void {
         this.isDestroyed = true;
     }
+
     getPosition(): Common.IPoint {
         return this.position;
     }
@@ -48,6 +42,8 @@ export class Target implements ITarget {
         if (this.isDestroyed) {
             return;
         }
+
+        this.moveDown();
         this.drawService.drawSquare(this.position.x, this.position.y, this.width);
     }
 

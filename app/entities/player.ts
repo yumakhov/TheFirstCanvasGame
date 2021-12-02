@@ -53,9 +53,7 @@ export class Player implements IPlayer {
             this._playerImg = this.drawService.drawImageFromFile(this.position, '../assets/img/tank.svg');
         } else {
             this.drawService.drawImage(this.position, this._playerImg);
-        }
-
-        //this.drawService.drawSquare(this.position.x, this.position.y, this.width);        
+        }       
     }
 
     private _playerImg: HTMLImageElement;
