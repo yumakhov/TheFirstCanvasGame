@@ -8,50 +8,50 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   version="1.1"
-   id="svg8"
+   sodipodi:docname="tank.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="tank.svg">
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
   <defs
      id="defs2">
     <linearGradient
-       id="linearGradient863"
-       osb:paint="solid">
+       osb:paint="solid"
+       id="linearGradient863">
       <stop
-         style="stop-color:#000000;stop-opacity:1;"
+         id="stop861"
          offset="0"
-         id="stop861" />
+         style="stop-color:#000000;stop-opacity:1;" />
     </linearGradient>
   </defs>
   <sodipodi:namedview
-     borderlayer="false"
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="301.96408"
-     inkscape:cy="216.80642"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:window-width="1898"
-     inkscape:window-height="1020"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:snap-object-midpoints="false"
-     showguides="false"
-     inkscape:snap-others="false"
-     inkscape:snap-midpoints="true"
+     inkscape:snap-nodes="false"
      inkscape:object-nodes="false"
-     inkscape:snap-nodes="false" />
+     inkscape:snap-midpoints="true"
+     inkscape:snap-others="false"
+     showguides="false"
+     inkscape:snap-object-midpoints="false"
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:window-height="1020"
+     inkscape:window-width="1898"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="261.47309"
+     inkscape:cx="301.96408"
+     inkscape:zoom="1"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     borderlayer="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -60,52 +60,56 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Слой 1"
+     id="layer1"
      inkscape:groupmode="layer"
-     id="layer1">
+     inkscape:label="Слой 1">
     <rect
-       style="fill:#447821;stroke-width:0.0461688"
-       id="rect10"
-       width="20"
-       height="12.801886"
+       y="8.1730528"
        x="1.0583299"
-       y="8.1730528" />
+       height="12.801886"
+       width="20"
+       id="rect10"
+       style="fill:#447821;stroke-width:0.0461688" />
+    <rect
+       y="20.974932"
+       x="3.1429598"
+       height="1.70095"
+       width="15.830744"
+       id="rect12"
+       style="fill:#000000;stroke-width:0.0440009" />
     <rect
        style="fill:#000000;stroke-width:0.0440009"
-       id="rect12"
-       width="15.830744"
-       height="1.70095"
-       x="3.1429598"
-       y="20.974932" />
-    <rect
-       y="6.4721131"
-       x="3.1429613"
-       height="1.70095"
-       width="15.830744"
        id="rect12-6"
-       style="fill:#000000;stroke-width:0.0440009" />
-    <path
-       id="path32"
-       style="fill:#447821;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.133488;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 16.486904,14.439735 A 5.2380964,4.923801 0 0 1 11.248815,19.363519 5.2380964,4.923801 0 0 1 6.0107111,14.439735 5.2380964,4.923801 0 0 1 11.248815,9.5159243 5.2380964,4.923801 0 0 1 16.486904,14.439735 Z" />
-    <rect
-       style="fill:#447821;fill-opacity:1;stroke:#000000;stroke-width:0.13221;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect886"
-       width="2.1917958"
-       height="8.8640814"
-       x="10.010039"
-       y="0.74198657" />
-    <ellipse
-       style="fill:#2d5016;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0985909;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path888"
-       cx="11.201194"
-       cy="14.41735"
-       rx="2.6666667"
-       ry="2.5290449" />
+       width="15.830744"
+       height="1.70095"
+       x="3.1429613"
+       y="6.4721131" />
+    <g
+       transform="translate(-78.316667,-87.312501)"
+       id="g862">
+      <path
+         d="m 94.667263,101.75333 a 5.2380965,4.9238011 0 0 1 -5.238089,4.92378 5.2380965,4.9238011 0 0 1 -5.238104,-4.92378 5.2380965,4.9238011 0 0 1 5.238104,-4.923812 5.2380965,4.9238011 0 0 1 5.238089,4.923812 z"
+         style="fill:#447821;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.133488;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path32-4" />
+      <rect
+         y="88.05558"
+         x="88.190399"
+         height="8.8640814"
+         width="2.1917958"
+         id="rect886-8"
+         style="fill:#447821;fill-opacity:1;stroke:#000000;stroke-width:0.13221;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <ellipse
+         ry="2.5290449"
+         rx="2.6666667"
+         cy="101.73094"
+         cx="89.381554"
+         id="path888-3"
+         style="fill:#2d5016;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.0985909;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
 </svg>
