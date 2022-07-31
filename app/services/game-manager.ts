@@ -28,11 +28,19 @@ export default class GameManager {
         const tactInterval = 1000 / 60;    
         let i = 0;
         var intervalId = setInterval(() => {
-            if (!this.player.isAlive()){
-               alert("GAME OVER");
-               clearInterval(intervalId);           
-               this.drawService.clear();
-               return; 
+            let isGameOver = !this.player.isAlive();
+            if (isGameOver) {
+                clearInterval(intervalId);           
+                this.drawService.clear();
+                this.rockets = [];
+                this.targets = [];
+
+                let shouldStartAgain = confirm('GAME OVER. Do you want to start again?');
+                if (shouldStartAgain) {
+                    this.start();
+                }
+
+                return; 
             }
 
             //Targets generation --->>>
